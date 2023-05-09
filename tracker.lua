@@ -107,11 +107,10 @@ local function handleMessagePacket(data)
 
         if (arcs[target]) then
             arcs[target].clock = os.clock() - timeouts[arcs[target].color] + 0.5;
-        end
-
-        if (arcs[sender]) then
-            if (arcs[sender].dst == target) then
-                arcs[sender].clock = os.clock() - timeouts[arcs[target].color] + 0.5;
+            if (arcs[sender]) then
+                if (arcs[sender].dst == target) then
+                    arcs[sender].clock = os.clock() - timeouts[arcs[target].color] + 0.5;
+                end
             end
         end
     end

@@ -4,8 +4,9 @@ local d3d = require('d3d8');
 local C = ffi.C;
 local d3d8dev = d3d.get_device();
 
-local width, height = 1920, 1080;
-
+local _, viewport = d3d8dev:GetViewport();
+local width = viewport.Width;
+local height = viewport.Height;
 
 local function matrixMultiply(m1, m2)
     return ffi.new('D3DXMATRIX', {
@@ -112,7 +113,7 @@ do
     function rotateVector16(k, v, flip)
         -- k . v
         local kv = k[1] * v[1] + k[2] * v[2] + k[3] * v[3];
-        
+
         local rx, ry, rz
         if (flip) then
             local kvcos = kv * (1 - cos2);

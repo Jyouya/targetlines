@@ -47,6 +47,8 @@ config.drawWindow = function()
             end
             imgui.EndChild();
         end
+        imgui.PopStyleColor(8);
+        imgui.End();
     end
 end
 

@@ -42,7 +42,6 @@ local function vec4Transform(v, m)
     });
 end
 
-
 local function worldToScreen(x, y, z, view, projection)
     local vplayer = ffi.new('D3DXVECTOR4', { x, y, z, 1 });
 
